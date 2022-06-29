@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>CompressionTesting.CompressionBenchmarks.IronSnappyBenchmarks-20220629-200532</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.1, OS=ubuntu 18.04
+Intel Xeon Platinum 8259CL CPU 2.50GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=6.0.301
+  [Host]     : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT
+  DefaultJob : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>              Method</th><th>Categories</th><th>which_data</th><th>    Mean</th><th>  Error</th><th> StdDev</th><th>  Median</th><th>Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>UnmanagedCompress</td><td>Compress</td><td>156kB_text_file</td><td>2,296.084 &mu;s</td><td>4.4959 &mu;s</td><td>4.2055 &mu;s</td><td>2,293.706 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>156kB_text_file</td><td>1,098.062 &mu;s</td><td>1.3946 &mu;s</td><td>1.2363 &mu;s</td><td>1,098.111 &mu;s</td><td>0.48</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>156kB_text_file</td><td>1,588.488 &mu;s</td><td>2.7696 &mu;s</td><td>2.3128 &mu;s</td><td>1,588.666 &mu;s</td><td>0.69</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>156kB_text_file</td><td>1,031.660 &mu;s</td><td>1.7465 &mu;s</td><td>1.5482 &mu;s</td><td>1,031.298 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>156kB_text_file</td><td>634.622 &mu;s</td><td>1.7398 &mu;s</td><td>1.4528 &mu;s</td><td>634.661 &mu;s</td><td>0.62</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>156kB_text_file</td><td>486.997 &mu;s</td><td>0.3386 &mu;s</td><td>0.3002 &mu;s</td><td>487.043 &mu;s</td><td>0.47</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>2.9mb_text_file</td><td>41,211.230 &mu;s</td><td>412.2883 &mu;s</td><td>385.6548 &mu;s</td><td>41,345.556 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>2.9mb_text_file</td><td>17,903.072 &mu;s</td><td>15.2791 &mu;s</td><td>14.2920 &mu;s</td><td>17,905.238 &mu;s</td><td>0.43</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>2.9mb_text_file</td><td>28,482.657 &mu;s</td><td>171.8345 &mu;s</td><td>160.7341 &mu;s</td><td>28,580.554 &mu;s</td><td>0.69</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>2.9mb_text_file</td><td>18,416.645 &mu;s</td><td>15.6578 &mu;s</td><td>14.6463 &mu;s</td><td>18,414.334 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>2.9mb_text_file</td><td>10,407.265 &mu;s</td><td>202.8071 &mu;s</td><td>189.7059 &mu;s</td><td>10,568.626 &mu;s</td><td>0.57</td><td>0.01</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>2.9mb_text_file</td><td>572.914 &mu;s</td><td>12.6236 &mu;s</td><td>37.2209 &mu;s</td><td>581.760 &mu;s</td><td>0.03</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>27mb_json_file</td><td>238,072.954 &mu;s</td><td>3,743.3508 &mu;s</td><td>3,501.5326 &mu;s</td><td>241,059.070 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>27mb_json_file</td><td>105,614.567 &mu;s</td><td>327.9367 &mu;s</td><td>306.7522 &mu;s</td><td>105,512.873 &mu;s</td><td>0.44</td><td>0.01</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>27mb_json_file</td><td>195,912.765 &mu;s</td><td>773.3414 &mu;s</td><td>723.3840 &mu;s</td><td>196,177.165 &mu;s</td><td>0.82</td><td>0.01</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>27mb_json_file</td><td>137,081.747 &mu;s</td><td>82.7980 &mu;s</td><td>77.4493 &mu;s</td><td>137,048.979 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>27mb_json_file</td><td>61,566.214 &mu;s</td><td>27.8293 &mu;s</td><td>23.2387 &mu;s</td><td>61,568.877 &mu;s</td><td>0.45</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>27mb_json_file</td><td>1,796.735 &mu;s</td><td>4.8835 &mu;s</td><td>4.5680 &mu;s</td><td>1,799.658 &mu;s</td><td>0.01</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>39kB_json_file</td><td>344.349 &mu;s</td><td>0.6846 &mu;s</td><td>0.6069 &mu;s</td><td>344.343 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>39kB_json_file</td><td>125.581 &mu;s</td><td>0.8985 &mu;s</td><td>0.8405 &mu;s</td><td>125.113 &mu;s</td><td>0.36</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>39kB_json_file</td><td>247.689 &mu;s</td><td>0.3435 &mu;s</td><td>0.2868 &mu;s</td><td>247.747 &mu;s</td><td>0.72</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>39kB_json_file</td><td>87.718 &mu;s</td><td>0.3167 &mu;s</td><td>0.2807 &mu;s</td><td>87.654 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>39kB_json_file</td><td>37.774 &mu;s</td><td>0.2970 &mu;s</td><td>0.2480 &mu;s</td><td>37.715 &mu;s</td><td>0.43</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>39kB_json_file</td><td>180.980 &mu;s</td><td>0.2456 &mu;s</td><td>0.2298 &mu;s</td><td>180.826 &mu;s</td><td>2.06</td><td>0.01</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>490kB_text_file</td><td>8,386.718 &mu;s</td><td>7.1911 &mu;s</td><td>6.0049 &mu;s</td><td>8,387.337 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>490kB_text_file</td><td>3,786.526 &mu;s</td><td>6.3810 &mu;s</td><td>5.6566 &mu;s</td><td>3,784.944 &mu;s</td><td>0.45</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>490kB_text_file</td><td>5,368.196 &mu;s</td><td>7.7547 &mu;s</td><td>6.8743 &mu;s</td><td>5,367.975 &mu;s</td><td>0.64</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>490kB_text_file</td><td>3,871.118 &mu;s</td><td>11.7725 &mu;s</td><td>11.0120 &mu;s</td><td>3,870.923 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>490kB_text_file</td><td>2,263.520 &mu;s</td><td>7.8085 &mu;s</td><td>7.3041 &mu;s</td><td>2,259.097 &mu;s</td><td>0.58</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>490kB_text_file</td><td>539.768 &mu;s</td><td>0.6967 &mu;s</td><td>0.6176 &mu;s</td><td>539.731 &mu;s</td><td>0.14</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>49mb_json_file</td><td>537,790.833 &mu;s</td><td>4,584.6808 &mu;s</td><td>4,288.5133 &mu;s</td><td>541,359.806 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>49mb_json_file</td><td>247,489.661 &mu;s</td><td>1,775.9872 &mu;s</td><td>1,661.2595 &mu;s</td><td>246,174.121 &mu;s</td><td>0.46</td><td>0.01</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>49mb_json_file</td><td>419,491.114 &mu;s</td><td>4,527.8910 &mu;s</td><td>4,235.3921 &mu;s</td><td>423,026.636 &mu;s</td><td>0.78</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>49mb_json_file</td><td>296,584.013 &mu;s</td><td>175.0899 &mu;s</td><td>155.2126 &mu;s</td><td>296,552.735 &mu;s</td><td>1.000</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>49mb_json_file</td><td>153,802.641 &mu;s</td><td>63.4974 &mu;s</td><td>59.3955 &mu;s</td><td>153,806.510 &mu;s</td><td>0.519</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>49mb_json_file</td><td>1,474.286 &mu;s</td><td>7.0510 &mu;s</td><td>6.5955 &mu;s</td><td>1,475.913 &mu;s</td><td>0.005</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>randomData</td><td>9.736 &mu;s</td><td>0.0535 &mu;s</td><td>0.0500 &mu;s</td><td>9.731 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>randomData</td><td>4.503 &mu;s</td><td>0.0849 &mu;s</td><td>0.0753 &mu;s</td><td>4.466 &mu;s</td><td>0.46</td><td>0.01</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>randomData</td><td>37.312 &mu;s</td><td>0.1694 &mu;s</td><td>0.1502 &mu;s</td><td>37.319 &mu;s</td><td>3.83</td><td>0.02</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>randomData</td><td>4.928 &mu;s</td><td>0.0979 &mu;s</td><td>0.1609 &mu;s</td><td>4.900 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>randomData</td><td>1.150 &mu;s</td><td>0.0080 &mu;s</td><td>0.0071 &mu;s</td><td>1.150 &mu;s</td><td>0.23</td><td>0.01</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>randomData</td><td>46.957 &mu;s</td><td>0.0516 &mu;s</td><td>0.0483 &mu;s</td><td>46.951 &mu;s</td><td>9.42</td><td>0.32</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>repetitiveData</td><td>8.738 &mu;s</td><td>0.1436 &mu;s</td><td>0.1343 &mu;s</td><td>8.679 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyCompressBlock</td><td>Compress</td><td>repetitiveData</td><td>15.908 &mu;s</td><td>0.2433 &mu;s</td><td>0.2802 &mu;s</td><td>15.792 &mu;s</td><td>1.83</td><td>0.05</td>
+</tr><tr><td>IronSnappyCompressStream</td><td>Compress</td><td>repetitiveData</td><td>47.016 &mu;s</td><td>0.1184 &mu;s</td><td>0.0989 &mu;s</td><td>47.018 &mu;s</td><td>5.39</td><td>0.08</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>repetitiveData</td><td>14.079 &mu;s</td><td>0.0517 &mu;s</td><td>0.0431 &mu;s</td><td>14.083 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>IronSnappyDecompressBlock</td><td>Decompress</td><td>repetitiveData</td><td>14.510 &mu;s</td><td>0.0909 &mu;s</td><td>0.0850 &mu;s</td><td>14.468 &mu;s</td><td>1.03</td><td>0.01</td>
+</tr><tr><td>IronSnappyDecompressStream</td><td>Decompress</td><td>repetitiveData</td><td>59.596 &mu;s</td><td>0.0226 &mu;s</td><td>0.0211 &mu;s</td><td>59.592 &mu;s</td><td>4.23</td><td>0.01</td>
+</tr></tbody></table>
+</body>
+</html>

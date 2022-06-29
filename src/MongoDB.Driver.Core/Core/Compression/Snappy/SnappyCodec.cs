@@ -33,7 +33,7 @@ using MongoDB.Driver.Core.Misc;
 
 namespace MongoDB.Driver.Core.Compression.Snappy
 {
-    internal static class SnappyCodec
+    public static class SnappyCodec
     {
         public static int Compress(byte[] input, int inputOffset, int inputLength, byte[] output, int outputOffset, int outputLength)
         {

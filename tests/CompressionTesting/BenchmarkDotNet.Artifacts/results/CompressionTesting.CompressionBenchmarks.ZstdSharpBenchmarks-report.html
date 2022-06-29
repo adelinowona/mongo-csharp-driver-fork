@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>CompressionTesting.CompressionBenchmarks.ZstdSharpBenchmarks-20220629-192603</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.1, OS=ubuntu 18.04
+Intel Xeon Platinum 8259CL CPU 2.50GHz, 1 CPU, 8 logical and 4 physical cores
+.NET SDK=6.0.301
+  [Host]     : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT
+  DefaultJob : .NET 6.0.6 (6.0.622.26707), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>        Method</th><th>Categories</th><th>which_data</th><th>    Mean</th><th>  Error</th><th> StdDev</th><th>  Median</th><th>Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>UnmanagedCompress</td><td>Compress</td><td>156kB_text_file</td><td>2,293.749 &mu;s</td><td>3.9079 &mu;s</td><td>3.6555 &mu;s</td><td>2,292.164 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>156kB_text_file</td><td>4,011.837 &mu;s</td><td>4.4593 &mu;s</td><td>4.1713 &mu;s</td><td>4,010.137 &mu;s</td><td>1.75</td><td>0.00</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>156kB_text_file</td><td>1,753.820 &mu;s</td><td>6.0290 &mu;s</td><td>5.6396 &mu;s</td><td>1,755.266 &mu;s</td><td>0.76</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>156kB_text_file</td><td>1,025.917 &mu;s</td><td>1.4334 &mu;s</td><td>1.1969 &mu;s</td><td>1,025.503 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>156kB_text_file</td><td>416.710 &mu;s</td><td>0.7344 &mu;s</td><td>0.6870 &mu;s</td><td>416.399 &mu;s</td><td>0.41</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>156kB_text_file</td><td>381.747 &mu;s</td><td>0.5288 &mu;s</td><td>0.4415 &mu;s</td><td>381.730 &mu;s</td><td>0.37</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>2.9mb_text_file</td><td>41,313.023 &mu;s</td><td>91.2188 &mu;s</td><td>85.3261 &mu;s</td><td>41,281.048 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>2.9mb_text_file</td><td>55,216.622 &mu;s</td><td>55.3258 &mu;s</td><td>46.1996 &mu;s</td><td>55,198.633 &mu;s</td><td>1.34</td><td>0.00</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>2.9mb_text_file</td><td>25,765.573 &mu;s</td><td>32.6084 &mu;s</td><td>27.2295 &mu;s</td><td>25,764.035 &mu;s</td><td>0.62</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>2.9mb_text_file</td><td>18,670.149 &mu;s</td><td>7.2710 &mu;s</td><td>6.4455 &mu;s</td><td>18,670.864 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>2.9mb_text_file</td><td>5,517.704 &mu;s</td><td>7.7474 &mu;s</td><td>6.0487 &mu;s</td><td>5,517.148 &mu;s</td><td>0.30</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>2.9mb_text_file</td><td>6,789.399 &mu;s</td><td>135.4948 &mu;s</td><td>288.7504 &mu;s</td><td>7,053.763 &mu;s</td><td>0.36</td><td>0.02</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>27mb_json_file</td><td>237,348.093 &mu;s</td><td>954.7184 &mu;s</td><td>893.0442 &mu;s</td><td>237,882.763 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>27mb_json_file</td><td>387,949.418 &mu;s</td><td>606.2260 &mu;s</td><td>567.0641 &mu;s</td><td>388,040.340 &mu;s</td><td>1.63</td><td>0.01</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>27mb_json_file</td><td>189,173.254 &mu;s</td><td>704.4032 &mu;s</td><td>658.8992 &mu;s</td><td>189,113.288 &mu;s</td><td>0.80</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>27mb_json_file</td><td>130,769.554 &mu;s</td><td>2,522.0252 &mu;s</td><td>2,904.3680 &mu;s</td><td>130,763.279 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>27mb_json_file</td><td>50,404.241 &mu;s</td><td>73.0118 &mu;s</td><td>68.2953 &mu;s</td><td>50,387.855 &mu;s</td><td>0.39</td><td>0.01</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>27mb_json_file</td><td>51,931.553 &mu;s</td><td>89.2998 &mu;s</td><td>83.5311 &mu;s</td><td>51,912.587 &mu;s</td><td>0.40</td><td>0.01</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>39kB_json_file</td><td>343.623 &mu;s</td><td>0.6042 &mu;s</td><td>0.5356 &mu;s</td><td>343.477 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>39kB_json_file</td><td>692.383 &mu;s</td><td>0.2079 &mu;s</td><td>0.1945 &mu;s</td><td>692.377 &mu;s</td><td>2.01</td><td>0.00</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>39kB_json_file</td><td>316.461 &mu;s</td><td>2.8290 &mu;s</td><td>2.6463 &mu;s</td><td>317.713 &mu;s</td><td>0.92</td><td>0.01</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>39kB_json_file</td><td>87.245 &mu;s</td><td>0.2023 &mu;s</td><td>0.1689 &mu;s</td><td>87.232 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>39kB_json_file</td><td>73.465 &mu;s</td><td>0.1735 &mu;s</td><td>0.1623 &mu;s</td><td>73.533 &mu;s</td><td>0.84</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>39kB_json_file</td><td>73.984 &mu;s</td><td>0.1177 &mu;s</td><td>0.1101 &mu;s</td><td>74.007 &mu;s</td><td>0.85</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>490kB_text_file</td><td>8,275.767 &mu;s</td><td>24.9403 &mu;s</td><td>22.1089 &mu;s</td><td>8,268.352 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>490kB_text_file</td><td>13,659.949 &mu;s</td><td>11.6510 &mu;s</td><td>10.8984 &mu;s</td><td>13,655.334 &mu;s</td><td>1.65</td><td>0.00</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>490kB_text_file</td><td>5,989.391 &mu;s</td><td>49.0770 &mu;s</td><td>45.9066 &mu;s</td><td>6,004.172 &mu;s</td><td>0.72</td><td>0.01</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>490kB_text_file</td><td>3,736.421 &mu;s</td><td>3.0506 &mu;s</td><td>2.5474 &mu;s</td><td>3,736.770 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>490kB_text_file</td><td>1,242.546 &mu;s</td><td>2.1973 &mu;s</td><td>1.9478 &mu;s</td><td>1,243.271 &mu;s</td><td>0.33</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>490kB_text_file</td><td>1,319.675 &mu;s</td><td>6.8092 &mu;s</td><td>6.3693 &mu;s</td><td>1,315.479 &mu;s</td><td>0.35</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>49mb_json_file</td><td>539,161.133 &mu;s</td><td>4,750.2679 &mu;s</td><td>4,443.4035 &mu;s</td><td>542,696.813 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>49mb_json_file</td><td>818,794.244 &mu;s</td><td>1,836.6794 &mu;s</td><td>1,718.0311 &mu;s</td><td>818,587.959 &mu;s</td><td>1.52</td><td>0.01</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>49mb_json_file</td><td>387,569.842 &mu;s</td><td>2,790.8364 &mu;s</td><td>2,610.5501 &mu;s</td><td>389,129.511 &mu;s</td><td>0.72</td><td>0.00</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>49mb_json_file</td><td>282,413.482 &mu;s</td><td>104.3409 &mu;s</td><td>92.4955 &mu;s</td><td>282,451.182 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>49mb_json_file</td><td>95,955.522 &mu;s</td><td>37.9404 &mu;s</td><td>33.6332 &mu;s</td><td>95,949.495 &mu;s</td><td>0.34</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>49mb_json_file</td><td>105,218.651 &mu;s</td><td>23.0359 &mu;s</td><td>20.4207 &mu;s</td><td>105,217.176 &mu;s</td><td>0.37</td><td>0.00</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>randomData</td><td>10.043 &mu;s</td><td>0.2002 &mu;s</td><td>0.2226 &mu;s</td><td>9.932 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>randomData</td><td>77.260 &mu;s</td><td>0.1140 &mu;s</td><td>0.0952 &mu;s</td><td>77.240 &mu;s</td><td>7.67</td><td>0.18</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>randomData</td><td>46.232 &mu;s</td><td>0.3306 &mu;s</td><td>0.3093 &mu;s</td><td>46.184 &mu;s</td><td>4.59</td><td>0.12</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>randomData</td><td>4.680 &mu;s</td><td>0.0281 &mu;s</td><td>0.0263 &mu;s</td><td>4.682 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>randomData</td><td>1.222 &mu;s</td><td>0.0059 &mu;s</td><td>0.0055 &mu;s</td><td>1.225 &mu;s</td><td>0.26</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>randomData</td><td>2.361 &mu;s</td><td>0.0424 &mu;s</td><td>0.0435 &mu;s</td><td>2.339 &mu;s</td><td>0.50</td><td>0.01</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>repetitiveData</td><td>8.858 &mu;s</td><td>0.1022 &mu;s</td><td>0.0956 &mu;s</td><td>8.839 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdCompressBlock</td><td>Compress</td><td>repetitiveData</td><td>12.338 &mu;s</td><td>0.1675 &mu;s</td><td>0.1485 &mu;s</td><td>12.336 &mu;s</td><td>1.39</td><td>0.02</td>
+</tr><tr><td>ZstdCompressStream</td><td>Compress</td><td>repetitiveData</td><td>30.537 &mu;s</td><td>0.4389 &mu;s</td><td>0.4106 &mu;s</td><td>30.525 &mu;s</td><td>3.45</td><td>0.06</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>repetitiveData</td><td>14.029 &mu;s</td><td>0.0884 &mu;s</td><td>0.0739 &mu;s</td><td>14.014 &mu;s</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressBlock</td><td>Decompress</td><td>repetitiveData</td><td>3.217 &mu;s</td><td>0.0113 &mu;s</td><td>0.0088 &mu;s</td><td>3.217 &mu;s</td><td>0.23</td><td>0.00</td>
+</tr><tr><td>ZstdDecompressStream</td><td>Decompress</td><td>repetitiveData</td><td>3.768 &mu;s</td><td>0.0639 &mu;s</td><td>0.0567 &mu;s</td><td>3.746 &mu;s</td><td>0.27</td><td>0.00</td>
+</tr></tbody></table>
+</body>
+</html>

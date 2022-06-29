@@ -50,7 +50,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <NoWarn>NU5100</NoWarn>
+    <NoWarn>NU5100, CS1591</NoWarn>
   </PropertyGroup>
 
   <!--Compression-->
