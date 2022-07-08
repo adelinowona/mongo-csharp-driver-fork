@@ -8,68 +8,68 @@ Intel Xeon Platinum 8259CL CPU 2.50GHz, 1 CPU, 8 logical and 4 physical cores
 
 
 ```
-|                     Method | Categories |      which_data |             Mean |           Error |          StdDev |           Median |              P95 | Ratio | RatioSD |
-|--------------------------- |----------- |---------------- |-----------------:|----------------:|----------------:|-----------------:|-----------------:|------:|--------:|
-|          **UnmanagedCompress** |   **Compress** | **156kB_text_file** |   **3,402,228.7 ns** |    **66,764.37 ns** |    **95,751.46 ns** |   **3,411,119.0 ns** |   **3,494,713.4 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress | 156kB_text_file |   1,572,109.5 ns |    37,778.60 ns |   111,391.04 ns |   1,598,273.3 ns |   1,679,891.2 ns |  0.45 |    0.05 |
-|   IronSnappyCompressStream |   Compress | 156kB_text_file |   1,630,052.6 ns |    31,754.10 ns |    54,774.27 ns |   1,604,867.5 ns |   1,762,674.1 ns |  0.48 |    0.02 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress | 156kB_text_file |   1,195,371.6 ns |    67,344.13 ns |   198,565.69 ns |   1,346,248.1 ns |   1,393,951.4 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress | 156kB_text_file |     851,477.4 ns |    60,016.05 ns |   176,958.69 ns |     925,284.7 ns |   1,086,394.9 ns |  0.72 |    0.14 |
-| IronSnappyDecompressStream | Decompress | 156kB_text_file |     488,875.4 ns |     1,868.72 ns |     1,656.57 ns |     489,300.8 ns |     490,732.2 ns |  0.38 |    0.04 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** | **2.9mb_text_file** |  **37,347,971.8 ns** |    **28,856.91 ns** |    **22,529.58 ns** |  **37,348,074.3 ns** |  **37,380,515.9 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress | 2.9mb_text_file |  17,655,636.5 ns |    40,787.22 ns |    31,843.98 ns |  17,648,991.3 ns |  17,706,527.7 ns |  0.47 |    0.00 |
-|   IronSnappyCompressStream |   Compress | 2.9mb_text_file |  28,774,229.3 ns |    39,375.47 ns |    34,905.33 ns |  28,771,695.3 ns |  28,821,211.7 ns |  0.77 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress | 2.9mb_text_file |  14,266,422.8 ns |    20,053.11 ns |    17,776.56 ns |  14,259,984.2 ns |  14,297,806.7 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress | 2.9mb_text_file |  10,630,490.7 ns |    13,714.50 ns |    11,452.23 ns |  10,627,305.1 ns |  10,649,422.4 ns |  0.75 |    0.00 |
-| IronSnappyDecompressStream | Decompress | 2.9mb_text_file |     543,875.7 ns |     6,675.85 ns |     5,917.96 ns |     545,079.5 ns |     550,940.7 ns |  0.04 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** |  **27mb_json_file** | **205,163,359.1 ns** |   **165,292.93 ns** |   **146,527.87 ns** | **205,181,921.7 ns** | **205,397,274.7 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress |  27mb_json_file | 104,989,309.1 ns | 1,970,490.57 ns | 3,652,430.62 ns | 104,007,634.0 ns | 116,062,006.8 ns |  0.52 |    0.03 |
-|   IronSnappyCompressStream |   Compress |  27mb_json_file | 188,240,874.0 ns |   762,282.25 ns |   713,039.29 ns | 188,514,148.7 ns | 189,118,915.2 ns |  0.92 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress |  27mb_json_file |  85,894,152.5 ns |    82,373.84 ns |    73,022.26 ns |  85,889,679.8 ns |  86,012,672.4 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress |  27mb_json_file |  70,508,145.0 ns | 3,204,688.30 ns | 9,449,095.76 ns |  71,967,456.2 ns |  83,345,426.8 ns |  0.79 |    0.10 |
-| IronSnappyDecompressStream | Decompress |  27mb_json_file |   1,842,065.4 ns |   144,161.52 ns |   425,063.49 ns |   1,503,238.6 ns |   2,459,155.4 ns |  0.03 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** |  **39kB_json_file** |     **321,086.7 ns** |       **209.50 ns** |       **195.96 ns** |     **321,034.3 ns** |     **321,312.8 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress |  39kB_json_file |     122,618.7 ns |       244.85 ns |       229.03 ns |     122,630.8 ns |     122,884.5 ns |  0.38 |    0.00 |
-|   IronSnappyCompressStream |   Compress |  39kB_json_file |     238,386.4 ns |       196.64 ns |       183.94 ns |     238,343.9 ns |     238,701.3 ns |  0.74 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress |  39kB_json_file |      72,287.8 ns |        56.78 ns |        53.12 ns |      72,289.2 ns |      72,362.7 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress |  39kB_json_file |      39,504.5 ns |       428.17 ns |       400.51 ns |      39,557.7 ns |      40,011.7 ns |  0.55 |    0.01 |
-| IronSnappyDecompressStream | Decompress |  39kB_json_file |     176,287.4 ns |       146.30 ns |       129.69 ns |     176,317.7 ns |     176,435.6 ns |  2.44 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** | **490kB_text_file** |   **7,805,052.9 ns** |     **3,528.24 ns** |     **3,300.32 ns** |   **7,805,650.2 ns** |   **7,808,834.8 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress | 490kB_text_file |   3,790,196.4 ns |    16,914.80 ns |    15,822.12 ns |   3,794,794.3 ns |   3,800,845.8 ns |  0.49 |    0.00 |
-|   IronSnappyCompressStream |   Compress | 490kB_text_file |   5,420,019.4 ns |    14,055.92 ns |    13,147.92 ns |   5,417,757.2 ns |   5,437,714.6 ns |  0.69 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress | 490kB_text_file |   3,374,977.0 ns |     1,849.00 ns |     1,729.56 ns |   3,374,654.2 ns |   3,377,799.4 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress | 490kB_text_file |   2,291,168.5 ns |     5,266.09 ns |     4,925.90 ns |   2,292,896.9 ns |   2,296,011.0 ns |  0.68 |    0.00 |
-| IronSnappyDecompressStream | Decompress | 490kB_text_file |     547,767.6 ns |     5,764.60 ns |     5,392.21 ns |     548,235.0 ns |     556,202.4 ns |  0.16 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** |  **49mb_json_file** | **489,342,816.1 ns** |   **123,826.35 ns** |   **103,400.61 ns** | **489,310,329.0 ns** | **489,485,814.0 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress |  49mb_json_file | 245,774,263.6 ns | 1,810,261.44 ns | 1,693,319.67 ns | 244,567,518.5 ns | 247,639,001.9 ns |  0.50 |    0.00 |
-|   IronSnappyCompressStream |   Compress |  49mb_json_file | 418,169,213.6 ns | 3,092,663.37 ns | 2,892,879.24 ns | 416,860,625.0 ns | 422,566,252.9 ns |  0.85 |    0.01 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress |  49mb_json_file | 192,096,730.0 ns |    82,175.14 ns |    76,866.67 ns | 192,102,515.0 ns | 192,198,675.8 ns | 1.000 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress |  49mb_json_file | 150,658,135.8 ns | 1,081,651.84 ns | 1,202,253.16 ns | 150,276,121.5 ns | 152,244,176.1 ns | 0.785 |    0.01 |
-| IronSnappyDecompressStream | Decompress |  49mb_json_file |   1,556,738.9 ns |     6,349.60 ns |     5,302.21 ns |   1,557,366.7 ns |   1,563,340.6 ns | 0.008 |    0.00 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** |      **randomData** |       **4,759.5 ns** |        **27.82 ns** |        **26.02 ns** |       **4,759.0 ns** |       **4,792.4 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress |      randomData |       5,305.4 ns |       134.81 ns |       393.25 ns |       5,195.8 ns |       6,009.5 ns |  1.20 |    0.09 |
-|   IronSnappyCompressStream |   Compress |      randomData |      37,852.9 ns |       453.91 ns |       424.59 ns |      37,896.6 ns |      38,316.9 ns |  7.95 |    0.11 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress |      randomData |         472.5 ns |         9.03 ns |         7.54 ns |         469.9 ns |         485.6 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress |      randomData |       1,445.4 ns |        51.41 ns |       143.30 ns |       1,390.9 ns |       1,761.7 ns |  3.54 |    0.20 |
-| IronSnappyDecompressStream | Decompress |      randomData |      45,944.1 ns |        29.86 ns |        27.93 ns |      45,942.6 ns |      45,985.7 ns | 97.26 |    1.50 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|          **UnmanagedCompress** |   **Compress** |  **repetitiveData** |       **5,928.2 ns** |        **69.28 ns** |        **64.80 ns** |       **5,900.3 ns** |       **6,023.3 ns** |  **1.00** |    **0.00** |
-|    IronSnappyCompressBlock |   Compress |  repetitiveData |      17,240.3 ns |       344.60 ns |       368.72 ns |      17,270.6 ns |      17,712.6 ns |  2.91 |    0.09 |
-|   IronSnappyCompressStream |   Compress |  repetitiveData |      48,293.3 ns |       129.15 ns |       120.81 ns |      48,284.7 ns |      48,464.0 ns |  8.15 |    0.10 |
-|                            |            |                 |                  |                 |                 |                  |                  |       |         |
-|        UnmanagedDecompress | Decompress |  repetitiveData |      10,576.0 ns |         5.38 ns |         4.77 ns |      10,576.1 ns |      10,582.8 ns |  1.00 |    0.00 |
-|  IronSnappyDecompressBlock | Decompress |  repetitiveData |      15,049.6 ns |        58.47 ns |        54.70 ns |      15,057.1 ns |      15,127.2 ns |  1.42 |    0.00 |
-| IronSnappyDecompressStream | Decompress |  repetitiveData |      59,931.5 ns |       217.38 ns |       203.34 ns |      59,914.9 ns |      60,195.7 ns |  5.67 |    0.02 |
+|                     Method | Categories |      which_data |             Mean |            Error |           StdDev |           Median | Ratio | RatioSD |     Gen 0 |    Gen 1 |    Gen 2 |    Allocated |
+|--------------------------- |----------- |---------------- |-----------------:|-----------------:|-----------------:|-----------------:|------:|--------:|----------:|---------:|---------:|-------------:|
+|          **UnmanagedCompress** |   **Compress** | **156kB_text_file** |   **2,187,297.7 ns** |      **6,151.37 ns** |      **4,802.58 ns** |   **2,186,211.9 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |         **67 B** |
+|    IronSnappyCompressBlock |   Compress | 156kB_text_file |   1,108,085.8 ns |        620.67 ns |        550.20 ns |   1,108,039.2 ns |  0.51 |    0.00 |   29.2969 |  25.3906 |  25.3906 |    186,712 B |
+|   IronSnappyCompressStream |   Compress | 156kB_text_file |   1,548,135.6 ns |        876.45 ns |        776.95 ns |   1,548,220.2 ns |  0.71 |    0.00 |   29.2969 |  25.3906 |  25.3906 |    186,776 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress | 156kB_text_file |     937,489.8 ns |        242.99 ns |        227.29 ns |     937,556.4 ns |  1.00 |    0.00 |         - |        - |        - |         65 B |
+|  IronSnappyDecompressBlock | Decompress | 156kB_text_file |     644,419.4 ns |        297.91 ns |        232.59 ns |     644,403.1 ns |  0.69 |    0.00 |   43.9453 |  43.9453 |  43.9453 |    152,412 B |
+| IronSnappyDecompressStream | Decompress | 156kB_text_file |     467,967.0 ns |        951.32 ns |        889.87 ns |     467,953.1 ns |  0.50 |    0.00 |   42.9688 |  39.5508 |  39.5508 |    196,746 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** | **2.9mb_text_file** |  **36,964,531.0 ns** |     **64,518.08 ns** |     **60,350.25 ns** |  **36,989,423.9 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |        **122 B** |
+|    IronSnappyCompressBlock |   Compress | 2.9mb_text_file |  17,933,795.9 ns |     12,196.08 ns |     10,811.51 ns |  17,937,841.7 ns |  0.49 |    0.00 |   62.5000 |        - |        - |  2,983,946 B |
+|   IronSnappyCompressStream |   Compress | 2.9mb_text_file |  26,510,686.3 ns |     15,344.69 ns |     14,353.43 ns |  26,511,381.5 ns |  0.72 |    0.00 |   62.5000 |        - |        - |  2,984,890 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress | 2.9mb_text_file |  14,254,999.7 ns |      6,119.66 ns |      5,724.33 ns |  14,255,855.3 ns |  1.00 |    0.00 |         - |        - |        - |         77 B |
+|  IronSnappyDecompressBlock | Decompress | 2.9mb_text_file |  10,349,674.2 ns |    204,086.27 ns |    299,147.02 ns |  10,099,764.1 ns |  0.73 |    0.02 |   31.2500 |  31.2500 |  31.2500 |  2,899,593 B |
+| IronSnappyDecompressStream | Decompress | 2.9mb_text_file |     461,097.7 ns |        254.93 ns |        238.46 ns |     461,066.8 ns |  0.03 |    0.00 |    6.3477 |   2.9297 |   2.9297 |    196,722 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** |  **27mb_json_file** | **204,539,578.2 ns** |    **106,500.11 ns** |     **88,932.41 ns** | **204,551,923.7 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |        **336 B** |
+|    IronSnappyCompressBlock |   Compress |  27mb_json_file | 104,552,366.9 ns |    343,281.16 ns |    321,105.41 ns | 104,450,976.6 ns |  0.51 |    0.00 |  600.0000 |        - |        - | 22,392,371 B |
+|   IronSnappyCompressStream |   Compress |  27mb_json_file | 184,740,735.8 ns |    710,799.51 ns |    664,882.31 ns | 184,828,230.0 ns |  0.90 |    0.00 |  666.6667 |        - |        - | 22,402,581 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress |  27mb_json_file |  85,676,164.4 ns |     49,835.12 ns |     46,615.80 ns |  85,685,624.8 ns | 1.000 |    0.00 |         - |        - |        - |        200 B |
+|  IronSnappyDecompressBlock | Decompress |  27mb_json_file |  58,909,896.9 ns |     75,371.96 ns |     70,502.98 ns |  58,936,043.7 ns | 0.688 |    0.00 |         - |        - |        - | 27,185,235 B |
+| IronSnappyDecompressStream | Decompress |  27mb_json_file |     317,358.9 ns |         54.12 ns |         50.62 ns |     317,356.6 ns | 0.004 |    0.00 |    3.4180 |        - |        - |    196,720 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** |  **39kB_json_file** |     **319,785.1 ns** |        **137.27 ns** |        **114.62 ns** |     **319,814.3 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |         **64 B** |
+|    IronSnappyCompressBlock |   Compress |  39kB_json_file |     126,308.0 ns |         73.19 ns |         64.88 ns |     126,328.2 ns |  0.40 |    0.00 |    2.6855 |        - |        - |     50,480 B |
+|   IronSnappyCompressStream |   Compress |  39kB_json_file |     239,470.9 ns |        303.07 ns |        645.87 ns |     239,366.1 ns |  0.75 |    0.00 |    1.7090 |        - |        - |     32,848 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress |  39kB_json_file |      71,924.4 ns |         24.19 ns |         22.63 ns |      71,929.9 ns |  1.00 |    0.00 |         - |        - |        - |         64 B |
+|  IronSnappyDecompressBlock | Decompress |  39kB_json_file |      39,995.3 ns |         65.43 ns |         61.20 ns |      39,988.2 ns |  0.56 |    0.00 |    2.0752 |   0.2441 |        - |     39,328 B |
+| IronSnappyDecompressStream | Decompress |  39kB_json_file |     175,315.5 ns |        639.16 ns |        597.87 ns |     175,008.4 ns |  2.44 |    0.01 |   41.5039 |  41.5039 |  41.5039 |    196,748 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** | **490kB_text_file** |   **7,803,881.8 ns** |      **8,208.05 ns** |      **6,854.10 ns** |   **7,802,662.4 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |         **70 B** |
+|    IronSnappyCompressBlock |   Compress | 490kB_text_file |   4,541,064.9 ns |    230,219.92 ns |    678,808.62 ns |   4,861,982.5 ns |  0.66 |    0.06 |   78.1250 |  66.4063 |  66.4063 |    582,011 B |
+|   IronSnappyCompressStream |   Compress | 490kB_text_file |   6,398,929.4 ns |    174,420.16 ns |    514,281.78 ns |   6,526,596.7 ns |  0.82 |    0.04 |   70.3125 |  62.5000 |  62.5000 |    582,085 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress | 490kB_text_file |   3,394,166.7 ns |     31,607.26 ns |     35,131.39 ns |   3,374,457.2 ns |  1.00 |    0.00 |         - |        - |        - |         67 B |
+|  IronSnappyDecompressBlock | Decompress | 490kB_text_file |   3,227,170.6 ns |    116,546.81 ns |    343,640.91 ns |   3,303,236.0 ns |  0.99 |    0.05 |  105.4688 | 105.4688 | 105.4688 |    482,087 B |
+| IronSnappyDecompressStream | Decompress | 490kB_text_file |     614,804.8 ns |     37,051.87 ns |    109,248.28 ns |     634,805.3 ns |  0.20 |    0.03 |   40.0391 |  37.1094 |  37.1094 |    196,745 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** |  **49mb_json_file** | **481,516,478.6 ns** |    **909,549.63 ns** |    **850,793.29 ns** | **481,130,594.0 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |      **1,272 B** |
+|    IronSnappyCompressBlock |   Compress |  49mb_json_file | 243,505,477.1 ns |  1,632,968.03 ns |  1,527,479.31 ns | 242,285,467.0 ns |  0.51 |    0.00 | 1000.0000 |        - |        - | 44,700,124 B |
+|   IronSnappyCompressStream |   Compress |  49mb_json_file | 456,857,667.5 ns | 15,692,015.64 ns | 46,268,262.16 ns | 482,890,127.0 ns |  0.88 |    0.11 | 1000.0000 |        - |        - | 44,714,744 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress |  49mb_json_file | 189,022,610.3 ns |     54,523.40 ns |     51,001.22 ns | 189,021,364.3 ns | 1.000 |    0.00 |         - |        - |        - |        336 B |
+|  IronSnappyDecompressBlock | Decompress |  49mb_json_file | 147,992,688.4 ns |     45,042.59 ns |     42,132.87 ns | 147,991,773.5 ns | 0.783 |    0.00 |         - |        - |        - | 49,556,212 B |
+| IronSnappyDecompressStream | Decompress |  49mb_json_file |     404,583.2 ns |     11,983.31 ns |     35,333.05 ns |     416,974.5 ns | 0.002 |    0.00 |    3.4180 |        - |        - |    196,720 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** |      **randomData** |       **4,773.9 ns** |         **44.05 ns** |        **110.50 ns** |       **4,746.1 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |         **64 B** |
+|    IronSnappyCompressBlock |   Compress |      randomData |       6,633.6 ns |        131.18 ns |        188.13 ns |       6,595.6 ns |  1.38 |    0.06 |    2.2812 |   0.0763 |        - |     42,872 B |
+|   IronSnappyCompressStream |   Compress |      randomData |      36,728.5 ns |         50.81 ns |         47.53 ns |      36,720.3 ns |  7.67 |    0.29 |    1.7090 |        - |        - |     32,848 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress |      randomData |         466.4 ns |          4.32 ns |          8.22 ns |         464.5 ns |  1.00 |    0.00 |    0.0033 |        - |        - |         64 B |
+|  IronSnappyDecompressBlock | Decompress |      randomData |       1,883.7 ns |         46.70 ns |        136.96 ns |       1,858.6 ns |  3.84 |    0.18 |    0.5379 |   0.0191 |        - |     10,072 B |
+| IronSnappyDecompressStream | Decompress |      randomData |      45,400.5 ns |         57.81 ns |         51.25 ns |      45,389.5 ns | 96.50 |    2.61 |   41.6260 |  41.6260 |  41.6260 |    196,748 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|          **UnmanagedCompress** |   **Compress** |  **repetitiveData** |       **5,994.7 ns** |         **54.74 ns** |         **48.52 ns** |       **5,992.6 ns** |  **1.00** |    **0.00** |         **-** |        **-** |        **-** |         **64 B** |
+|    IronSnappyCompressBlock |   Compress |  repetitiveData |      18,034.1 ns |        154.08 ns |        136.59 ns |      18,087.8 ns |  3.01 |    0.03 |    1.7700 |        - |        - |     33,344 B |
+|   IronSnappyCompressStream |   Compress |  repetitiveData |      47,880.6 ns |         15.64 ns |         12.21 ns |      47,884.6 ns |  7.99 |    0.07 |    1.7090 |        - |        - |     32,848 B |
+|                            |            |                 |                  |                  |                  |                  |       |         |           |          |          |              |
+|        UnmanagedDecompress | Decompress |  repetitiveData |      10,551.4 ns |          1.89 ns |          1.77 ns |      10,551.7 ns |  1.00 |    0.00 |         - |        - |        - |         64 B |
+|  IronSnappyDecompressBlock | Decompress |  repetitiveData |      14,982.8 ns |          8.99 ns |          8.41 ns |      14,985.4 ns |  1.42 |    0.00 |    0.5341 |   0.0153 |        - |     10,072 B |
+| IronSnappyDecompressStream | Decompress |  repetitiveData |      58,108.9 ns |        126.28 ns |        118.12 ns |      58,059.8 ns |  5.51 |    0.01 |   41.6260 |  41.6260 |  41.6260 |    196,748 B |
