@@ -10,6 +10,7 @@ namespace CompressionTesting.CompressionBenchmarks
 {
 	[GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
 	[CategoriesColumn]
+	[MemoryDiagnoser]
 	public class SnappierBenchmarks
 	{
 		
@@ -21,6 +22,7 @@ namespace CompressionTesting.CompressionBenchmarks
 		private byte[] managedCompressBuffer;
 		private byte[] managedCompressedBlock;
 		private byte[] managedDecompressBuffer;
+		private byte[] managedUncompressedBuffer;
 
 		private byte[] unmanagedCompressBuffer;
 		private byte[] unmanagedCompressedBlock;
@@ -28,6 +30,7 @@ namespace CompressionTesting.CompressionBenchmarks
 
 		private int managedCompressedSize;
 		private MemoryStream managedCompressedStream;
+		private MemoryStream managedTempStream;
 
 
 		[GlobalSetup]
@@ -53,7 +56,9 @@ namespace CompressionTesting.CompressionBenchmarks
 
 			managedCompressBuffer = new byte[Snappy.GetMaxCompressedLength(testdata.Length)];
 			managedDecompressBuffer = new byte[Snappy.GetUncompressedLength(managedCompressedBlock.AsSpan(0, managedCompressedSize))];
+			managedUncompressedBuffer = new byte[testdata.Length];
 
+			managedTempStream = new MemoryStream();
 			managedCompressedStream = new MemoryStream();
 			using (Stream snappierStream = new SnappyStream(managedCompressedStream, CompressionMode.Compress, true))
 			{
@@ -85,7 +90,7 @@ namespace CompressionTesting.CompressionBenchmarks
 
 
 		[BenchmarkCategory("Compress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedCompress()
+        public int UnmanagedCompress()
         {
            SnappyCodec.Compress(
                 input: testdata,
@@ -94,12 +99,12 @@ namespace CompressionTesting.CompressionBenchmarks
                 output: unmanagedCompressBuffer,
                 outputOffset: 0,
                 outputLength: unmanagedCompressBuffer.Length);
-            return  unmanagedCompressBuffer;
+            return  unmanagedCompressBuffer.Length;
         }
 
 
         [BenchmarkCategory("Decompress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedDecompress()
+        public int UnmanagedDecompress()
         {
            SnappyCodec.Uncompress(
                 input: unmanagedCompressedBlock,
@@ -108,49 +113,47 @@ namespace CompressionTesting.CompressionBenchmarks
                 output: unmanagedDecompressBuffer,
                 outputOffset: 0,
                 outputLength: unmanagedDecompressBuffer.Length);
-            return  unmanagedDecompressBuffer; 
+            return  unmanagedDecompressBuffer.Length; 
         }
 
 
 		[BenchmarkCategory("Compress"), Benchmark]
-		public byte[] SnappierCompressBlock()
+		public int SnappierCompressBlock()
 		{
 			Snappy.Compress(testdata, managedCompressBuffer);
-			return managedCompressBuffer;
+			return managedCompressBuffer.Length;
 		}
 
 
 		[BenchmarkCategory("Decompress"), Benchmark]
-		public byte[] SnappierDecompressBlock()
+		public int SnappierDecompressBlock()
         {
 			Snappy.Decompress(managedCompressedBlock.AsSpan(0, managedCompressedSize), managedDecompressBuffer);
-			return managedDecompressBuffer;
+			return managedDecompressBuffer.Length;
 		}
 
 
 		[BenchmarkCategory("Compress"), Benchmark]
-		public byte[] SnappierCompressStream()
+		public long SnappierCompressStream()
 		{
-			using (MemoryStream tempStream = new MemoryStream())
-			using (Stream snappierStream = new SnappyStream(tempStream, CompressionMode.Compress, true))
+			managedTempStream.Position = 0;
+            managedTempStream.SetLength(0);
+			using (Stream snappierStream = new SnappyStream(managedTempStream, CompressionMode.Compress, true))
 			{
 				snappierStream.Write(testdata);
-				tempStream.Seek(0, SeekOrigin.Begin);
-
-				return tempStream.ToArray();
+				return managedTempStream.Length;
 			}
 		}
 
 
 		[BenchmarkCategory("Decompress"), Benchmark]
-		public byte[] SnappierDecompressStream()
+		public int SnappierDecompressStream()
 		{
 			managedCompressedStream.Seek(0, SeekOrigin.Begin);
 			using (Stream snappierStream = new SnappyStream(managedCompressedStream, CompressionMode.Decompress, true))
 			{
-				var uncompressed = new byte[testdata.Length];
-				snappierStream.Read(uncompressed, 0, testdata.Length);
-				return uncompressed;
+				snappierStream.Read(managedUncompressedBuffer, 0, testdata.Length);
+				return managedUncompressedBuffer.Length;
 			}
 		}
 
@@ -159,6 +162,7 @@ namespace CompressionTesting.CompressionBenchmarks
 		public void Cleanup()
 		{
 			managedCompressedStream.Dispose();
+			managedTempStream.Dispose();
 		}
 	}
 }

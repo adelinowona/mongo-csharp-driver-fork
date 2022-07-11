@@ -8,68 +8,68 @@ Intel Xeon Platinum 8259CL CPU 2.50GHz, 1 CPU, 8 logical and 4 physical cores
 
 
 ```
-|                   Method | Categories |      which_data |             Mean |           Error |          StdDev | Ratio | RatioSD |   Gen 0 |   Gen 1 |   Gen 2 |    Allocated |
-|------------------------- |----------- |---------------- |-----------------:|----------------:|----------------:|------:|--------:|--------:|--------:|--------:|-------------:|
-|        **UnmanagedCompress** |   **Compress** | **156kB_text_file** |   **2,214,492.2 ns** |       **829.97 ns** |       **735.75 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |         **68 B** |
-|    SnappierCompressBlock |   Compress | 156kB_text_file |     714,700.9 ns |       436.83 ns |       408.61 ns |  0.32 |    0.00 |       - |       - |       - |         73 B |
-|   SnappierCompressStream |   Compress | 156kB_text_file |     748,904.7 ns |       259.20 ns |       229.77 ns |  0.34 |    0.00 |  3.9063 |       - |       - |     75,625 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress | 156kB_text_file |     949,913.8 ns |        69.12 ns |        53.96 ns |  1.00 |    0.00 |       - |       - |       - |         65 B |
-|  SnappierDecompressBlock | Decompress | 156kB_text_file |     370,294.4 ns |       278.91 ns |       232.91 ns |  0.39 |    0.00 |       - |       - |       - |        153 B |
-| SnappierDecompressStream | Decompress | 156kB_text_file |     390,355.0 ns |       168.25 ns |       149.15 ns |  0.41 |    0.00 |       - |       - |       - |        337 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** | **2.9mb_text_file** |  **37,345,742.4 ns** |    **13,277.52 ns** |    **11,770.17 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |        **146 B** |
-|    SnappierCompressBlock |   Compress | 2.9mb_text_file |  12,266,232.0 ns |    11,457.61 ns |    10,156.87 ns |  0.33 |    0.00 |       - |       - |       - |         90 B |
-|   SnappierCompressStream |   Compress | 2.9mb_text_file |  12,977,981.3 ns |    16,192.79 ns |    13,521.71 ns |  0.35 |    0.00 |       - |       - |       - |  1,501,379 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress | 2.9mb_text_file |  14,413,752.6 ns |    11,662.11 ns |     9,738.39 ns |  1.00 |    0.00 |       - |       - |       - |         82 B |
-|  SnappierDecompressBlock | Decompress | 2.9mb_text_file |   6,540,169.3 ns |    10,457.95 ns |     9,782.38 ns |  0.45 |    0.00 |       - |       - |       - |        161 B |
-| SnappierDecompressStream | Decompress | 2.9mb_text_file |   6,577,401.7 ns |    19,705.40 ns |    18,432.45 ns |  0.46 |    0.00 |       - |       - |       - |        345 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** |  **27mb_json_file** | **206,711,292.1 ns** |    **44,107.92 ns** |    **39,100.52 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |        **637 B** |
-|    SnappierCompressBlock |   Compress |  27mb_json_file |  66,676,932.2 ns |    21,017.42 ns |    18,631.39 ns |  0.32 |    0.00 |       - |       - |       - |        216 B |
-|   SnappierCompressStream |   Compress |  27mb_json_file |  74,616,962.4 ns |   301,725.67 ns |   282,234.38 ns |  0.36 |    0.00 |       - |       - |       - |  8,771,118 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress |  27mb_json_file |  86,717,775.7 ns |    15,625.23 ns |    12,199.15 ns |  1.00 |    0.00 |       - |       - |       - |        256 B |
-|  SnappierDecompressBlock | Decompress |  27mb_json_file |  45,467,726.0 ns |    63,396.62 ns |    59,301.24 ns |  0.52 |    0.00 |       - |       - |       - |        248 B |
-| SnappierDecompressStream | Decompress |  27mb_json_file |  45,857,054.6 ns |    64,108.25 ns |    59,966.89 ns |  0.53 |    0.00 |       - |       - |       - |        441 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** |  **39kB_json_file** |     **324,851.5 ns** |        **73.47 ns** |        **68.73 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |         **65 B** |
-|    SnappierCompressBlock |   Compress |  39kB_json_file |      67,462.8 ns |       216.62 ns |       202.63 ns |  0.21 |    0.00 |       - |       - |       - |         96 B |
-|   SnappierCompressStream |   Compress |  39kB_json_file |      73,947.2 ns |        29.47 ns |        26.12 ns |  0.23 |    0.00 |       - |       - |       - |        320 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress |  39kB_json_file |      73,245.8 ns |        36.32 ns |        32.20 ns |  1.00 |    0.00 |       - |       - |       - |         64 B |
-|  SnappierDecompressBlock | Decompress |  39kB_json_file |      32,614.1 ns |        65.57 ns |        54.76 ns |  0.45 |    0.00 |       - |       - |       - |        152 B |
-| SnappierDecompressStream | Decompress |  39kB_json_file |      38,162.2 ns |        43.30 ns |        38.38 ns |  0.52 |    0.00 |       - |       - |       - |        336 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** | **490kB_text_file** |   **7,900,151.8 ns** |     **3,171.29 ns** |     **2,811.26 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |         **83 B** |
-|    SnappierCompressBlock |   Compress | 490kB_text_file |   2,488,170.4 ns |     1,827.21 ns |     1,525.80 ns |  0.31 |    0.00 |       - |       - |       - |         77 B |
-|   SnappierCompressStream |   Compress | 490kB_text_file |   2,670,732.4 ns |     3,055.29 ns |     2,857.92 ns |  0.34 |    0.00 | 54.6875 | 54.6875 | 54.6875 |    304,050 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress | 490kB_text_file |   3,414,609.0 ns |       722.23 ns |       640.24 ns |  1.00 |    0.00 |       - |       - |       - |         68 B |
-|  SnappierDecompressBlock | Decompress | 490kB_text_file |   1,405,838.9 ns |       438.32 ns |       410.00 ns |  0.41 |    0.00 |       - |       - |       - |        154 B |
-| SnappierDecompressStream | Decompress | 490kB_text_file |   1,489,878.6 ns |     1,347.15 ns |     1,260.12 ns |  0.44 |    0.00 |       - |       - |       - |        338 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** |  **49mb_json_file** | **488,818,201.9 ns** |   **105,910.90 ns** |    **93,887.25 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |      **1,216 B** |
-|    SnappierCompressBlock |   Compress |  49mb_json_file | 163,438,774.9 ns |    41,636.06 ns |    38,946.39 ns |  0.33 |    0.00 |       - |       - |       - |        502 B |
-|   SnappierCompressStream |   Compress |  49mb_json_file | 181,734,551.2 ns |    59,474.25 ns |    55,632.25 ns |  0.37 |    0.00 |       - |       - |       - | 19,878,645 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress |  49mb_json_file | 196,369,311.4 ns | 2,096,613.81 ns | 1,961,173.86 ns |  1.00 |    0.00 |       - |       - |       - |      1,717 B |
-|  SnappierDecompressBlock | Decompress |  49mb_json_file |  92,781,501.2 ns |    28,881.48 ns |    25,602.68 ns |  0.47 |    0.00 |       - |       - |       - |        439 B |
-| SnappierDecompressStream | Decompress |  49mb_json_file |  96,825,663.2 ns |    26,188.24 ns |    23,215.19 ns |  0.49 |    0.01 |       - |       - |       - |        615 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** |      **randomData** |       **4,800.4 ns** |        **40.21 ns** |        **37.62 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |         **64 B** |
-|    SnappierCompressBlock |   Compress |      randomData |       2,374.1 ns |        11.58 ns |        10.84 ns |  0.49 |    0.00 |  0.0038 |       - |       - |         96 B |
-|   SnappierCompressStream |   Compress |      randomData |       4,140.6 ns |         8.62 ns |         8.07 ns |  0.86 |    0.01 |  0.0153 |       - |       - |        320 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress |      randomData |         463.9 ns |         1.08 ns |         0.96 ns |  1.00 |    0.00 |  0.0029 |       - |       - |         64 B |
-|  SnappierDecompressBlock | Decompress |      randomData |         493.2 ns |        10.10 ns |        18.96 ns |  1.04 |    0.07 |  0.0081 |       - |       - |        152 B |
-| SnappierDecompressStream | Decompress |      randomData |       2,286.9 ns |         4.19 ns |         3.92 ns |  4.93 |    0.01 |  0.0153 |       - |       - |        336 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|        **UnmanagedCompress** |   **Compress** |  **repetitiveData** |       **6,225.1 ns** |        **39.14 ns** |        **36.61 ns** |  **1.00** |    **0.00** |       **-** |       **-** |       **-** |         **64 B** |
-|    SnappierCompressBlock |   Compress |  repetitiveData |       2,892.4 ns |         1.58 ns |         1.40 ns |  0.46 |    0.00 |  0.0038 |       - |       - |         96 B |
-|   SnappierCompressStream |   Compress |  repetitiveData |       4,623.0 ns |         6.42 ns |         6.00 ns |  0.74 |    0.00 |  0.0153 |       - |       - |        320 B |
-|                          |            |                 |                  |                 |                 |       |         |         |         |         |              |
-|      UnmanagedDecompress | Decompress |  repetitiveData |      10,697.7 ns |         4.68 ns |         4.38 ns |  1.00 |    0.00 |       - |       - |       - |         64 B |
-|  SnappierDecompressBlock | Decompress |  repetitiveData |       1,987.9 ns |         0.50 ns |         0.44 ns |  0.19 |    0.00 |  0.0076 |       - |       - |        152 B |
-| SnappierDecompressStream | Decompress |  repetitiveData |       3,270.0 ns |         0.99 ns |         0.88 ns |  0.31 |    0.00 |  0.0153 |       - |       - |        336 B |
+|                   Method | Categories |      which_data |             Mean |         Error |          StdDev |           Median | Ratio | RatioSD |  Gen 0 | Allocated |
+|------------------------- |----------- |---------------- |-----------------:|--------------:|----------------:|-----------------:|------:|--------:|-------:|----------:|
+|        **UnmanagedCompress** |   **Compress** | **156kB_text_file** |   **2,261,218.6 ns** |  **33,803.51 ns** |    **29,965.93 ns** |   **2,254,625.1 ns** |  **1.00** |    **0.00** |      **-** |      **68 B** |
+|    SnappierCompressBlock |   Compress | 156kB_text_file |     726,708.8 ns |  14,510.07 ns |    30,287.93 ns |     716,689.8 ns |  0.33 |    0.02 |      - |      73 B |
+|   SnappierCompressStream |   Compress | 156kB_text_file |     736,808.4 ns |     449.17 ns |       398.17 ns |     736,850.3 ns |  0.33 |    0.00 |      - |     281 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress | 156kB_text_file |   1,080,144.8 ns |  56,674.34 ns |   167,105.58 ns |     968,200.7 ns |  1.00 |    0.00 |      - |      66 B |
+|  SnappierDecompressBlock | Decompress | 156kB_text_file |     521,124.1 ns |  39,645.18 ns |   116,894.71 ns |     508,323.1 ns |  0.49 |    0.13 |      - |     153 B |
+| SnappierDecompressStream | Decompress | 156kB_text_file |     474,558.1 ns |  36,279.18 ns |   106,969.98 ns |     402,252.8 ns |  0.45 |    0.12 |      - |     337 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** | **2.9mb_text_file** |  **37,344,475.0 ns** |  **15,832.63 ns** |    **13,220.97 ns** |  **37,351,676.8 ns** |  **1.00** |    **0.00** |      **-** |     **146 B** |
+|    SnappierCompressBlock |   Compress | 2.9mb_text_file |  12,397,086.3 ns |  14,229.43 ns |    13,310.22 ns |  12,396,294.9 ns |  0.33 |    0.00 |      - |      90 B |
+|   SnappierCompressStream |   Compress | 2.9mb_text_file |  12,842,461.7 ns |   9,426.39 ns |     8,817.45 ns |  12,845,034.5 ns |  0.34 |    0.00 |      - |     298 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress | 2.9mb_text_file |  15,892,555.9 ns | 837,802.55 ns | 2,470,279.71 ns |  14,406,305.5 ns |  1.00 |    0.00 |      - |      82 B |
+|  SnappierDecompressBlock | Decompress | 2.9mb_text_file |   6,641,224.4 ns |  33,969.19 ns |    31,774.80 ns |   6,654,416.6 ns |  0.37 |    0.06 |      - |     161 B |
+| SnappierDecompressStream | Decompress | 2.9mb_text_file |   6,668,011.5 ns |  13,892.33 ns |    12,994.89 ns |   6,665,964.8 ns |  0.37 |    0.06 |      - |     345 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** |  **27mb_json_file** | **206,899,066.9 ns** |  **72,932.71 ns** |    **68,221.30 ns** | **206,910,168.7 ns** |  **1.00** |    **0.00** |      **-** |   **1,603 B** |
+|    SnappierCompressBlock |   Compress |  27mb_json_file |  66,766,040.6 ns |  20,666.41 ns |    18,320.23 ns |  66,762,979.8 ns |  0.32 |    0.00 |      - |   2,392 B |
+|   SnappierCompressStream |   Compress |  27mb_json_file |  71,838,456.0 ns |  18,064.76 ns |    16,013.94 ns |  71,832,199.9 ns |  0.35 |    0.00 |      - |     424 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress |  27mb_json_file |  86,808,125.4 ns |  27,667.47 ns |    24,526.49 ns |  86,806,776.8 ns |  1.00 |    0.00 |      - |     256 B |
+|  SnappierDecompressBlock | Decompress |  27mb_json_file |  43,951,283.2 ns |  43,361.57 ns |    40,560.44 ns |  43,954,667.2 ns |  0.51 |    0.00 |      - |     248 B |
+| SnappierDecompressStream | Decompress |  27mb_json_file |  46,064,161.7 ns |  22,941.44 ns |    21,459.43 ns |  46,064,744.4 ns |  0.53 |    0.00 |      - |     441 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** |  **39kB_json_file** |     **324,574.0 ns** |      **56.28 ns** |        **52.64 ns** |     **324,573.0 ns** |  **1.00** |    **0.00** |      **-** |      **65 B** |
+|    SnappierCompressBlock |   Compress |  39kB_json_file |      67,676.9 ns |      47.71 ns |        42.29 ns |      67,689.6 ns |  0.21 |    0.00 |      - |      96 B |
+|   SnappierCompressStream |   Compress |  39kB_json_file |      73,587.2 ns |      78.02 ns |        72.98 ns |      73,602.9 ns |  0.23 |    0.00 |      - |     280 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress |  39kB_json_file |      73,196.3 ns |      33.41 ns |        31.25 ns |      73,206.3 ns |  1.00 |    0.00 |      - |      64 B |
+|  SnappierDecompressBlock | Decompress |  39kB_json_file |      33,013.0 ns |      44.77 ns |        41.88 ns |      33,005.0 ns |  0.45 |    0.00 |      - |     152 B |
+| SnappierDecompressStream | Decompress |  39kB_json_file |      38,205.2 ns |      20.07 ns |        17.79 ns |      38,201.9 ns |  0.52 |    0.00 |      - |     336 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** | **490kB_text_file** |   **7,898,407.6 ns** |   **4,564.04 ns** |     **4,269.21 ns** |   **7,898,030.9 ns** |  **1.00** |    **0.00** |      **-** |      **83 B** |
+|    SnappierCompressBlock |   Compress | 490kB_text_file |   2,500,529.0 ns |     698.89 ns |       619.55 ns |   2,500,526.5 ns |  0.32 |    0.00 |      - |      76 B |
+|   SnappierCompressStream |   Compress | 490kB_text_file |   2,567,671.3 ns |   1,432.93 ns |     1,340.36 ns |   2,567,936.3 ns |  0.33 |    0.00 |      - |     284 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress | 490kB_text_file |   3,414,036.1 ns |     279.23 ns |       233.17 ns |   3,413,968.6 ns |  1.00 |    0.00 |      - |      68 B |
+|  SnappierDecompressBlock | Decompress | 490kB_text_file |   1,405,064.7 ns |     396.47 ns |       370.86 ns |   1,405,026.2 ns |  0.41 |    0.00 |      - |     154 B |
+| SnappierDecompressStream | Decompress | 490kB_text_file |   1,489,901.0 ns |     346.98 ns |       307.59 ns |   1,489,812.4 ns |  0.44 |    0.00 |      - |     338 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** |  **49mb_json_file** | **488,174,367.1 ns** | **110,527.83 ns** |   **103,387.80 ns** | **488,158,039.0 ns** |  **1.00** |    **0.00** |      **-** |   **5,192 B** |
+|    SnappierCompressBlock |   Compress |  49mb_json_file | 163,124,050.4 ns |  47,460.79 ns |    44,394.86 ns | 163,137,299.2 ns |  0.33 |    0.00 |      - |     360 B |
+|   SnappierCompressStream |   Compress |  49mb_json_file | 171,314,356.7 ns | 156,476.13 ns |   138,712.01 ns | 171,278,275.0 ns |  0.35 |    0.00 |      - |   1,824 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress |  49mb_json_file | 191,769,203.5 ns | 277,080.40 ns |   231,374.68 ns | 191,673,893.0 ns |  1.00 |    0.00 |      - |   1,069 B |
+|  SnappierDecompressBlock | Decompress |  49mb_json_file |  93,656,904.5 ns |  37,390.06 ns |    33,145.32 ns |  93,660,810.7 ns |  0.49 |    0.00 |      - |     425 B |
+| SnappierDecompressStream | Decompress |  49mb_json_file |  96,888,356.0 ns |  49,521.63 ns |    43,899.64 ns |  96,891,995.8 ns |  0.51 |    0.00 |      - |     547 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** |      **randomData** |       **4,798.0 ns** |      **45.52 ns** |        **42.58 ns** |       **4,819.0 ns** |  **1.00** |    **0.00** |      **-** |      **64 B** |
+|    SnappierCompressBlock |   Compress |      randomData |       2,345.7 ns |       6.14 ns |         5.44 ns |       2,345.6 ns |  0.49 |    0.00 | 0.0038 |      96 B |
+|   SnappierCompressStream |   Compress |      randomData |       3,782.1 ns |       6.17 ns |         5.78 ns |       3,783.3 ns |  0.79 |    0.01 | 0.0114 |     280 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress |      randomData |         445.8 ns |       0.35 ns |         0.33 ns |         445.8 ns |  1.00 |    0.00 | 0.0033 |      64 B |
+|  SnappierDecompressBlock | Decompress |      randomData |         442.0 ns |       1.74 ns |         1.63 ns |         442.3 ns |  0.99 |    0.00 | 0.0081 |     152 B |
+| SnappierDecompressStream | Decompress |      randomData |       2,293.4 ns |       2.00 ns |         1.88 ns |       2,293.6 ns |  5.14 |    0.01 | 0.0153 |     336 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|        **UnmanagedCompress** |   **Compress** |  **repetitiveData** |       **6,142.4 ns** |      **26.60 ns** |        **24.89 ns** |       **6,138.2 ns** |  **1.00** |    **0.00** |      **-** |      **64 B** |
+|    SnappierCompressBlock |   Compress |  repetitiveData |       2,869.6 ns |       1.82 ns |         1.70 ns |       2,869.3 ns |  0.47 |    0.00 | 0.0038 |      96 B |
+|   SnappierCompressStream |   Compress |  repetitiveData |       4,276.6 ns |       5.72 ns |         5.35 ns |       4,276.9 ns |  0.70 |    0.00 | 0.0076 |     280 B |
+|                          |            |                 |                  |               |                 |                  |       |         |        |           |
+|      UnmanagedDecompress | Decompress |  repetitiveData |      10,689.7 ns |       2.17 ns |         2.03 ns |      10,689.8 ns |  1.00 |    0.00 |      - |      64 B |
+|  SnappierDecompressBlock | Decompress |  repetitiveData |       1,865.5 ns |       1.65 ns |         1.55 ns |       1,865.0 ns |  0.17 |    0.00 | 0.0076 |     152 B |
+| SnappierDecompressStream | Decompress |  repetitiveData |       3,271.1 ns |       1.10 ns |         1.03 ns |       3,271.1 ns |  0.31 |    0.00 | 0.0153 |     336 B |

@@ -8,6 +8,7 @@ namespace CompressionTesting.CompressionBenchmarks
 {
     [GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
     [CategoriesColumn]
+    [MemoryDiagnoser]
     public class ZstdSharpBenchmarks
 	{
         [Params("2.9mb_text_file", "490kB_text_file", "156kB_text_file", "49mb_json_file", "27mb_json_file", "39kB_json_file", "randomData", "repetitiveData")]
@@ -15,8 +16,11 @@ namespace CompressionTesting.CompressionBenchmarks
 
 		private byte[] testdata;
         private byte[] managedCompressedBlock;
+        private byte[] managedUncompressedBlock;
 
         private MemoryStream managedCompressedStream;
+        private MemoryStream managedTempStream;
+
         private MemoryStream unmanagedCompressedStream;
         private MemoryStream unmanagedUncompressedStream;
 
@@ -37,6 +41,9 @@ namespace CompressionTesting.CompressionBenchmarks
             {
                 managedCompressedBlock = zstdsharpCompressor.Wrap(testdata).ToArray();
             }
+
+            managedUncompressedBlock = new byte[testdata.Length];
+            managedTempStream = new MemoryStream();
             managedCompressedStream = new MemoryStream();
             using (var compressionStream = new CompressionStream(managedCompressedStream))
             {
@@ -54,25 +61,25 @@ namespace CompressionTesting.CompressionBenchmarks
 
 
         [BenchmarkCategory("Compress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedCompress()
+        public long UnmanagedCompress()
         {
             using (MemoryStream output = new MemoryStream())
             {
                 unmanagedUncompressedStream.Position = 0;
                 unmanagedCompressor.Compress(unmanagedUncompressedStream, output);
-                return output.ToArray(); 
+                return output.Length; 
             }
         }
 
 
         [BenchmarkCategory("Decompress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedDecompress()
+        public long UnmanagedDecompress()
         {
             using (MemoryStream output = new MemoryStream())
             {
                 unmanagedCompressedStream.Position = 0;
                 unmanagedCompressor.Decompress(unmanagedCompressedStream, output);
-                return output.ToArray();
+                return output.Length;
             }
         }
 
@@ -94,27 +101,26 @@ namespace CompressionTesting.CompressionBenchmarks
 
 
         [BenchmarkCategory("Compress"), Benchmark]
-        public byte[] ZstdCompressStream()
+        public int ZstdCompressStream()
         {
-            using var tempStream = new MemoryStream();
-            using (var compressionStream = new CompressionStream(tempStream))
+            managedTempStream.Position = 0;
+            managedTempStream.SetLength(0);
+            using (var compressionStream = new CompressionStream(managedTempStream, 6))
             {
                 compressionStream.Write(testdata, 0, testdata.Length);
-                tempStream.Seek(0, SeekOrigin.Begin);
-                return tempStream.ToArray();
+                return testdata.Length;
             }
         }
 
 
         [BenchmarkCategory("Decompress"), Benchmark]
-        public byte[] ZstdDecompressStream()
+        public int ZstdDecompressStream()
         {
             managedCompressedStream.Seek(0, SeekOrigin.Begin);
             using (var decompressionStream = new DecompressionStream(managedCompressedStream))
             {
-                var uncompressed = new byte[testdata.Length];
-                decompressionStream.Read(uncompressed, 0, uncompressed.Length);
-                return uncompressed;
+                decompressionStream.Read(managedUncompressedBlock, 0, testdata.Length);
+                return managedUncompressedBlock.Length;
             }
         }
 
@@ -125,6 +131,7 @@ namespace CompressionTesting.CompressionBenchmarks
             managedCompressedStream.Dispose();
             unmanagedCompressedStream.Dispose();
             unmanagedUncompressedStream.Dispose();
+            managedTempStream.Dispose();
         }
     }
 }

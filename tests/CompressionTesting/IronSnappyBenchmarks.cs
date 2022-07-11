@@ -9,6 +9,7 @@ namespace CompressionTesting.CompressionBenchmarks
 {
 	[GroupBenchmarksBy(BenchmarkLogicalGroupRule.ByCategory)]
     [CategoriesColumn]
+    [MemoryDiagnoser]
     public class IronSnappyBenchmarks
 	{
         
@@ -22,7 +23,9 @@ namespace CompressionTesting.CompressionBenchmarks
         private byte[] unmanagedCompressedBlock;
 
 		private byte[] managedCompressedBlock;
+        private byte[] managedUncompressedBuffer;
 		private MemoryStream managedCompressedStream;
+        private MemoryStream managedTempStream;
 
 
         [GlobalSetup]
@@ -36,7 +39,9 @@ namespace CompressionTesting.CompressionBenchmarks
 			testdata = dataGenerator.GetData();
 			
 			managedCompressedBlock = Snappy.Encode(testdata);
+            managedUncompressedBuffer = new byte[testdata.Length];
 
+            managedTempStream = new MemoryStream();
 			managedCompressedStream = new MemoryStream();
 			using (Stream snappyStream = Snappy.OpenWriter(managedCompressedStream))
 			{
@@ -70,7 +75,7 @@ namespace CompressionTesting.CompressionBenchmarks
 
 
         [BenchmarkCategory("Compress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedCompress()
+        public int UnmanagedCompress()
         {
            SnappyCodec.Compress(
                 input: testdata,
@@ -79,12 +84,12 @@ namespace CompressionTesting.CompressionBenchmarks
                 output: unmanagedCompressBuffer,
                 outputOffset: 0,
                 outputLength: unmanagedCompressBuffer.Length);
-            return  unmanagedCompressBuffer;
+            return  unmanagedCompressBuffer.Length;
         }
 
 
         [BenchmarkCategory("Decompress"), Benchmark(Baseline = true)]
-        public byte[] UnmanagedDecompress()
+        public int UnmanagedDecompress()
         {
            SnappyCodec.Uncompress(
                 input: unmanagedCompressedBlock,
@@ -93,7 +98,7 @@ namespace CompressionTesting.CompressionBenchmarks
                 output: unmanagedDecompressBuffer,
                 outputOffset: 0,
                 outputLength: unmanagedDecompressBuffer.Length);
-            return  unmanagedDecompressBuffer; 
+            return  unmanagedDecompressBuffer.Length; 
         }
 
 
@@ -106,27 +111,26 @@ namespace CompressionTesting.CompressionBenchmarks
 
 
 		[BenchmarkCategory("Compress"), Benchmark]
-		public byte[] IronSnappyCompressStream()
+		public long IronSnappyCompressStream()
 		{
-			using var tempStream = new MemoryStream();
-			using (Stream snappyWriter = Snappy.OpenWriter(tempStream))
+            managedTempStream.Position = 0;
+            managedTempStream.SetLength(0);
+			using (Stream snappyWriter = Snappy.OpenWriter(managedTempStream))
 			{
 				snappyWriter.Write(testdata, 0, testdata.Length);
-                tempStream.Seek(0, SeekOrigin.Begin);
-			    return tempStream.ToArray();
+			    return managedTempStream.Length;
 			}
 		}
 
 
 		[BenchmarkCategory("Decompress"), Benchmark]
-		public byte[] IronSnappyDecompressStream()
+		public int IronSnappyDecompressStream()
 		{
 			managedCompressedStream.Seek(0, SeekOrigin.Begin);
             using (Stream snappyReader = Snappy.OpenReader(managedCompressedStream))
             {
-                var uncompressed = new byte[testdata.Length];
-                snappyReader.Read(uncompressed, 0, uncompressed.Length);
-                return uncompressed;
+                snappyReader.Read(managedUncompressedBuffer, 0, managedUncompressedBuffer.Length);
+                return managedUncompressedBuffer.Length;
             }         
 		}
 
@@ -135,6 +139,7 @@ namespace CompressionTesting.CompressionBenchmarks
         public void Cleanup()
         {
             managedCompressedStream.Dispose();
+            managedTempStream.Dispose();
         }
     }
 }

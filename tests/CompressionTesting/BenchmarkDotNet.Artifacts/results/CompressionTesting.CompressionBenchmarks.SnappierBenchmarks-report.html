@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>CompressionTesting.CompressionBenchmarks.SnappierBenchmarks-20220707-200045</title>
+<title>CompressionTesting.CompressionBenchmarks.SnappierBenchmarks-20220711-150436</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,56 +22,56 @@ Intel Xeon Platinum 8259CL CPU 2.50GHz, 1 CPU, 8 logical and 4 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>            Method</th><th>Categories</th><th>which_data</th><th>      Mean</th><th>    Error</th><th>   StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+<thead><tr><th>            Method</th><th>Categories</th><th>which_data</th><th>      Mean</th><th>  Error</th><th>   StdDev</th><th>    Median</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>UnmanagedCompress</td><td>Compress</td><td>156kB_text_file</td><td>2,214,492.2 ns</td><td>829.97 ns</td><td>735.75 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>68 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>156kB_text_file</td><td>714,700.9 ns</td><td>436.83 ns</td><td>408.61 ns</td><td>0.32</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>73 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>156kB_text_file</td><td>748,904.7 ns</td><td>259.20 ns</td><td>229.77 ns</td><td>0.34</td><td>0.00</td><td>3.9063</td><td>-</td><td>-</td><td>75,625 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>156kB_text_file</td><td>949,913.8 ns</td><td>69.12 ns</td><td>53.96 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>65 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>156kB_text_file</td><td>370,294.4 ns</td><td>278.91 ns</td><td>232.91 ns</td><td>0.39</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>153 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>156kB_text_file</td><td>390,355.0 ns</td><td>168.25 ns</td><td>149.15 ns</td><td>0.41</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>337 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>2.9mb_text_file</td><td>37,345,742.4 ns</td><td>13,277.52 ns</td><td>11,770.17 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>146 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>2.9mb_text_file</td><td>12,266,232.0 ns</td><td>11,457.61 ns</td><td>10,156.87 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>90 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>2.9mb_text_file</td><td>12,977,981.3 ns</td><td>16,192.79 ns</td><td>13,521.71 ns</td><td>0.35</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>1,501,379 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>2.9mb_text_file</td><td>14,413,752.6 ns</td><td>11,662.11 ns</td><td>9,738.39 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>82 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>2.9mb_text_file</td><td>6,540,169.3 ns</td><td>10,457.95 ns</td><td>9,782.38 ns</td><td>0.45</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>161 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>2.9mb_text_file</td><td>6,577,401.7 ns</td><td>19,705.40 ns</td><td>18,432.45 ns</td><td>0.46</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>345 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>27mb_json_file</td><td>206,711,292.1 ns</td><td>44,107.92 ns</td><td>39,100.52 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>637 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>27mb_json_file</td><td>66,676,932.2 ns</td><td>21,017.42 ns</td><td>18,631.39 ns</td><td>0.32</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>216 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>27mb_json_file</td><td>74,616,962.4 ns</td><td>301,725.67 ns</td><td>282,234.38 ns</td><td>0.36</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>8,771,118 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>27mb_json_file</td><td>86,717,775.7 ns</td><td>15,625.23 ns</td><td>12,199.15 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>256 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>27mb_json_file</td><td>45,467,726.0 ns</td><td>63,396.62 ns</td><td>59,301.24 ns</td><td>0.52</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>248 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>27mb_json_file</td><td>45,857,054.6 ns</td><td>64,108.25 ns</td><td>59,966.89 ns</td><td>0.53</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>441 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>39kB_json_file</td><td>324,851.5 ns</td><td>73.47 ns</td><td>68.73 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>65 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>39kB_json_file</td><td>67,462.8 ns</td><td>216.62 ns</td><td>202.63 ns</td><td>0.21</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>96 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>39kB_json_file</td><td>73,947.2 ns</td><td>29.47 ns</td><td>26.12 ns</td><td>0.23</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>320 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>39kB_json_file</td><td>73,245.8 ns</td><td>36.32 ns</td><td>32.20 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>39kB_json_file</td><td>32,614.1 ns</td><td>65.57 ns</td><td>54.76 ns</td><td>0.45</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>152 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>39kB_json_file</td><td>38,162.2 ns</td><td>43.30 ns</td><td>38.38 ns</td><td>0.52</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>336 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>490kB_text_file</td><td>7,900,151.8 ns</td><td>3,171.29 ns</td><td>2,811.26 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>83 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>490kB_text_file</td><td>2,488,170.4 ns</td><td>1,827.21 ns</td><td>1,525.80 ns</td><td>0.31</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>77 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>490kB_text_file</td><td>2,670,732.4 ns</td><td>3,055.29 ns</td><td>2,857.92 ns</td><td>0.34</td><td>0.00</td><td>54.6875</td><td>54.6875</td><td>54.6875</td><td>304,050 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>490kB_text_file</td><td>3,414,609.0 ns</td><td>722.23 ns</td><td>640.24 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>68 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>490kB_text_file</td><td>1,405,838.9 ns</td><td>438.32 ns</td><td>410.00 ns</td><td>0.41</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>154 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>490kB_text_file</td><td>1,489,878.6 ns</td><td>1,347.15 ns</td><td>1,260.12 ns</td><td>0.44</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>338 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>49mb_json_file</td><td>488,818,201.9 ns</td><td>105,910.90 ns</td><td>93,887.25 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>1,216 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>49mb_json_file</td><td>163,438,774.9 ns</td><td>41,636.06 ns</td><td>38,946.39 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>502 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>49mb_json_file</td><td>181,734,551.2 ns</td><td>59,474.25 ns</td><td>55,632.25 ns</td><td>0.37</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>19,878,645 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>49mb_json_file</td><td>196,369,311.4 ns</td><td>2,096,613.81 ns</td><td>1,961,173.86 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>1,717 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>49mb_json_file</td><td>92,781,501.2 ns</td><td>28,881.48 ns</td><td>25,602.68 ns</td><td>0.47</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>439 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>49mb_json_file</td><td>96,825,663.2 ns</td><td>26,188.24 ns</td><td>23,215.19 ns</td><td>0.49</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>615 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>randomData</td><td>4,800.4 ns</td><td>40.21 ns</td><td>37.62 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>randomData</td><td>2,374.1 ns</td><td>11.58 ns</td><td>10.84 ns</td><td>0.49</td><td>0.00</td><td>0.0038</td><td>-</td><td>-</td><td>96 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>randomData</td><td>4,140.6 ns</td><td>8.62 ns</td><td>8.07 ns</td><td>0.86</td><td>0.01</td><td>0.0153</td><td>-</td><td>-</td><td>320 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>randomData</td><td>463.9 ns</td><td>1.08 ns</td><td>0.96 ns</td><td>1.00</td><td>0.00</td><td>0.0029</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>randomData</td><td>493.2 ns</td><td>10.10 ns</td><td>18.96 ns</td><td>1.04</td><td>0.07</td><td>0.0081</td><td>-</td><td>-</td><td>152 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>randomData</td><td>2,286.9 ns</td><td>4.19 ns</td><td>3.92 ns</td><td>4.93</td><td>0.01</td><td>0.0153</td><td>-</td><td>-</td><td>336 B</td>
-</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>repetitiveData</td><td>6,225.1 ns</td><td>39.14 ns</td><td>36.61 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>repetitiveData</td><td>2,892.4 ns</td><td>1.58 ns</td><td>1.40 ns</td><td>0.46</td><td>0.00</td><td>0.0038</td><td>-</td><td>-</td><td>96 B</td>
-</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>repetitiveData</td><td>4,623.0 ns</td><td>6.42 ns</td><td>6.00 ns</td><td>0.74</td><td>0.00</td><td>0.0153</td><td>-</td><td>-</td><td>320 B</td>
-</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>repetitiveData</td><td>10,697.7 ns</td><td>4.68 ns</td><td>4.38 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>64 B</td>
-</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>repetitiveData</td><td>1,987.9 ns</td><td>0.50 ns</td><td>0.44 ns</td><td>0.19</td><td>0.00</td><td>0.0076</td><td>-</td><td>-</td><td>152 B</td>
-</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>repetitiveData</td><td>3,270.0 ns</td><td>0.99 ns</td><td>0.88 ns</td><td>0.31</td><td>0.00</td><td>0.0153</td><td>-</td><td>-</td><td>336 B</td>
+</thead><tbody><tr><td>UnmanagedCompress</td><td>Compress</td><td>156kB_text_file</td><td>2,261,218.6 ns</td><td>33,803.51 ns</td><td>29,965.93 ns</td><td>2,254,625.1 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>68 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>156kB_text_file</td><td>726,708.8 ns</td><td>14,510.07 ns</td><td>30,287.93 ns</td><td>716,689.8 ns</td><td>0.33</td><td>0.02</td><td>-</td><td>73 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>156kB_text_file</td><td>736,808.4 ns</td><td>449.17 ns</td><td>398.17 ns</td><td>736,850.3 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>281 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>156kB_text_file</td><td>1,080,144.8 ns</td><td>56,674.34 ns</td><td>167,105.58 ns</td><td>968,200.7 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>66 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>156kB_text_file</td><td>521,124.1 ns</td><td>39,645.18 ns</td><td>116,894.71 ns</td><td>508,323.1 ns</td><td>0.49</td><td>0.13</td><td>-</td><td>153 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>156kB_text_file</td><td>474,558.1 ns</td><td>36,279.18 ns</td><td>106,969.98 ns</td><td>402,252.8 ns</td><td>0.45</td><td>0.12</td><td>-</td><td>337 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>2.9mb_text_file</td><td>37,344,475.0 ns</td><td>15,832.63 ns</td><td>13,220.97 ns</td><td>37,351,676.8 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>146 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>2.9mb_text_file</td><td>12,397,086.3 ns</td><td>14,229.43 ns</td><td>13,310.22 ns</td><td>12,396,294.9 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>90 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>2.9mb_text_file</td><td>12,842,461.7 ns</td><td>9,426.39 ns</td><td>8,817.45 ns</td><td>12,845,034.5 ns</td><td>0.34</td><td>0.00</td><td>-</td><td>298 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>2.9mb_text_file</td><td>15,892,555.9 ns</td><td>837,802.55 ns</td><td>2,470,279.71 ns</td><td>14,406,305.5 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>82 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>2.9mb_text_file</td><td>6,641,224.4 ns</td><td>33,969.19 ns</td><td>31,774.80 ns</td><td>6,654,416.6 ns</td><td>0.37</td><td>0.06</td><td>-</td><td>161 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>2.9mb_text_file</td><td>6,668,011.5 ns</td><td>13,892.33 ns</td><td>12,994.89 ns</td><td>6,665,964.8 ns</td><td>0.37</td><td>0.06</td><td>-</td><td>345 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>27mb_json_file</td><td>206,899,066.9 ns</td><td>72,932.71 ns</td><td>68,221.30 ns</td><td>206,910,168.7 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>1,603 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>27mb_json_file</td><td>66,766,040.6 ns</td><td>20,666.41 ns</td><td>18,320.23 ns</td><td>66,762,979.8 ns</td><td>0.32</td><td>0.00</td><td>-</td><td>2,392 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>27mb_json_file</td><td>71,838,456.0 ns</td><td>18,064.76 ns</td><td>16,013.94 ns</td><td>71,832,199.9 ns</td><td>0.35</td><td>0.00</td><td>-</td><td>424 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>27mb_json_file</td><td>86,808,125.4 ns</td><td>27,667.47 ns</td><td>24,526.49 ns</td><td>86,806,776.8 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>256 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>27mb_json_file</td><td>43,951,283.2 ns</td><td>43,361.57 ns</td><td>40,560.44 ns</td><td>43,954,667.2 ns</td><td>0.51</td><td>0.00</td><td>-</td><td>248 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>27mb_json_file</td><td>46,064,161.7 ns</td><td>22,941.44 ns</td><td>21,459.43 ns</td><td>46,064,744.4 ns</td><td>0.53</td><td>0.00</td><td>-</td><td>441 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>39kB_json_file</td><td>324,574.0 ns</td><td>56.28 ns</td><td>52.64 ns</td><td>324,573.0 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>65 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>39kB_json_file</td><td>67,676.9 ns</td><td>47.71 ns</td><td>42.29 ns</td><td>67,689.6 ns</td><td>0.21</td><td>0.00</td><td>-</td><td>96 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>39kB_json_file</td><td>73,587.2 ns</td><td>78.02 ns</td><td>72.98 ns</td><td>73,602.9 ns</td><td>0.23</td><td>0.00</td><td>-</td><td>280 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>39kB_json_file</td><td>73,196.3 ns</td><td>33.41 ns</td><td>31.25 ns</td><td>73,206.3 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>64 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>39kB_json_file</td><td>33,013.0 ns</td><td>44.77 ns</td><td>41.88 ns</td><td>33,005.0 ns</td><td>0.45</td><td>0.00</td><td>-</td><td>152 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>39kB_json_file</td><td>38,205.2 ns</td><td>20.07 ns</td><td>17.79 ns</td><td>38,201.9 ns</td><td>0.52</td><td>0.00</td><td>-</td><td>336 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>490kB_text_file</td><td>7,898,407.6 ns</td><td>4,564.04 ns</td><td>4,269.21 ns</td><td>7,898,030.9 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>83 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>490kB_text_file</td><td>2,500,529.0 ns</td><td>698.89 ns</td><td>619.55 ns</td><td>2,500,526.5 ns</td><td>0.32</td><td>0.00</td><td>-</td><td>76 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>490kB_text_file</td><td>2,567,671.3 ns</td><td>1,432.93 ns</td><td>1,340.36 ns</td><td>2,567,936.3 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>284 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>490kB_text_file</td><td>3,414,036.1 ns</td><td>279.23 ns</td><td>233.17 ns</td><td>3,413,968.6 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>68 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>490kB_text_file</td><td>1,405,064.7 ns</td><td>396.47 ns</td><td>370.86 ns</td><td>1,405,026.2 ns</td><td>0.41</td><td>0.00</td><td>-</td><td>154 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>490kB_text_file</td><td>1,489,901.0 ns</td><td>346.98 ns</td><td>307.59 ns</td><td>1,489,812.4 ns</td><td>0.44</td><td>0.00</td><td>-</td><td>338 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>49mb_json_file</td><td>488,174,367.1 ns</td><td>110,527.83 ns</td><td>103,387.80 ns</td><td>488,158,039.0 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>5,192 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>49mb_json_file</td><td>163,124,050.4 ns</td><td>47,460.79 ns</td><td>44,394.86 ns</td><td>163,137,299.2 ns</td><td>0.33</td><td>0.00</td><td>-</td><td>360 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>49mb_json_file</td><td>171,314,356.7 ns</td><td>156,476.13 ns</td><td>138,712.01 ns</td><td>171,278,275.0 ns</td><td>0.35</td><td>0.00</td><td>-</td><td>1,824 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>49mb_json_file</td><td>191,769,203.5 ns</td><td>277,080.40 ns</td><td>231,374.68 ns</td><td>191,673,893.0 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>1,069 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>49mb_json_file</td><td>93,656,904.5 ns</td><td>37,390.06 ns</td><td>33,145.32 ns</td><td>93,660,810.7 ns</td><td>0.49</td><td>0.00</td><td>-</td><td>425 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>49mb_json_file</td><td>96,888,356.0 ns</td><td>49,521.63 ns</td><td>43,899.64 ns</td><td>96,891,995.8 ns</td><td>0.51</td><td>0.00</td><td>-</td><td>547 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>randomData</td><td>4,798.0 ns</td><td>45.52 ns</td><td>42.58 ns</td><td>4,819.0 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>64 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>randomData</td><td>2,345.7 ns</td><td>6.14 ns</td><td>5.44 ns</td><td>2,345.6 ns</td><td>0.49</td><td>0.00</td><td>0.0038</td><td>96 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>randomData</td><td>3,782.1 ns</td><td>6.17 ns</td><td>5.78 ns</td><td>3,783.3 ns</td><td>0.79</td><td>0.01</td><td>0.0114</td><td>280 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>randomData</td><td>445.8 ns</td><td>0.35 ns</td><td>0.33 ns</td><td>445.8 ns</td><td>1.00</td><td>0.00</td><td>0.0033</td><td>64 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>randomData</td><td>442.0 ns</td><td>1.74 ns</td><td>1.63 ns</td><td>442.3 ns</td><td>0.99</td><td>0.00</td><td>0.0081</td><td>152 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>randomData</td><td>2,293.4 ns</td><td>2.00 ns</td><td>1.88 ns</td><td>2,293.6 ns</td><td>5.14</td><td>0.01</td><td>0.0153</td><td>336 B</td>
+</tr><tr><td>UnmanagedCompress</td><td>Compress</td><td>repetitiveData</td><td>6,142.4 ns</td><td>26.60 ns</td><td>24.89 ns</td><td>6,138.2 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>64 B</td>
+</tr><tr><td>SnappierCompressBlock</td><td>Compress</td><td>repetitiveData</td><td>2,869.6 ns</td><td>1.82 ns</td><td>1.70 ns</td><td>2,869.3 ns</td><td>0.47</td><td>0.00</td><td>0.0038</td><td>96 B</td>
+</tr><tr><td>SnappierCompressStream</td><td>Compress</td><td>repetitiveData</td><td>4,276.6 ns</td><td>5.72 ns</td><td>5.35 ns</td><td>4,276.9 ns</td><td>0.70</td><td>0.00</td><td>0.0076</td><td>280 B</td>
+</tr><tr><td>UnmanagedDecompress</td><td>Decompress</td><td>repetitiveData</td><td>10,689.7 ns</td><td>2.17 ns</td><td>2.03 ns</td><td>10,689.8 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>64 B</td>
+</tr><tr><td>SnappierDecompressBlock</td><td>Decompress</td><td>repetitiveData</td><td>1,865.5 ns</td><td>1.65 ns</td><td>1.55 ns</td><td>1,865.0 ns</td><td>0.17</td><td>0.00</td><td>0.0076</td><td>152 B</td>
+</tr><tr><td>SnappierDecompressStream</td><td>Decompress</td><td>repetitiveData</td><td>3,271.1 ns</td><td>1.10 ns</td><td>1.03 ns</td><td>3,271.1 ns</td><td>0.31</td><td>0.00</td><td>0.0153</td><td>336 B</td>
 </tr></tbody></table>
 </body>
 </html>
