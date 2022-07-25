@@ -811,6 +811,24 @@ Task("TestsPackaging")
     })
     .DeferOnError();
 
+Task("TestNative")
+    .IsDependentOn("Build")
+    .DoesForEach(
+        GetFiles("./**/MongoDB.Driver.Core.Tests.csproj"),
+        testProject =>
+{
+    DotNetCoreTest(
+        testProject.FullPath,
+        new DotNetCoreTestSettings {
+            NoBuild = true,
+            NoRestore = true,
+            Configuration = configuration,
+            ArgumentCustomization = args => args.Append("-- RunConfiguration.TargetPlatform=x64"),
+            Filter = "DisplayName~NativeTests"
+        }
+    );
+});
+
 Setup<BuildConfig>(
     setupContext => 
     {
