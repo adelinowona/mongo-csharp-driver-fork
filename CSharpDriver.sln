@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Bson.Tests", "tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Bson.TestHelpers", "tests\MongoDB.Bson.TestHelpers\MongoDB.Bson.TestHelpers.csproj", "{4D6F0AD1-91CE-4736-AD4E-D9B11E49F206}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Driver.Core", "src\MongoDB.Driver.Core\MongoDB.Driver.Core.csproj", "{8AEB0131-9029-476A-B0B4-EEF3442C8706}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDB.Driver.Core", "src\MongoDB.Driver.Core\MongoDB.Driver.Core.csproj", "{8AEB0131-9029-476A-B0B4-EEF3442C8706}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDB.Driver.Core.TestHelpers", "tests\MongoDB.Driver.Core.TestHelpers\MongoDB.Driver.Core.TestHelpers.csproj", "{7296B5C1-2A73-4797-AF83-3AE5524BD504}"
 EndProject
@@ -53,6 +53,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDB.Driver.TestConsoleApplication", "tests\MongoDB.Driver.TestConsoleApplication\MongoDB.Driver.TestConsoleApplication.csproj", "{2E5780D2-29A5-483C-9CA2-844F45A66D0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstrolabeWorkloadExecutor", "tests\AstrolabeWorkloadExecutor\AstrolabeWorkloadExecutor.csproj", "{B90F025F-89D3-436A-AD78-6AA304A6E240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zstdtests", "tests\Zstdtests\Zstdtests.csproj", "{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,6 +138,10 @@ Global
 		{B90F025F-89D3-436A-AD78-6AA304A6E240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B90F025F-89D3-436A-AD78-6AA304A6E240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B90F025F-89D3-436A-AD78-6AA304A6E240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +166,7 @@ Global
 		{D198833A-6AC3-4327-8B02-5095455192D0} = {E472BDF5-61F1-461D-872B-9F53BB3ACA80}
 		{2E5780D2-29A5-483C-9CA2-844F45A66D0C} = {E472BDF5-61F1-461D-872B-9F53BB3ACA80}
 		{B90F025F-89D3-436A-AD78-6AA304A6E240} = {E472BDF5-61F1-461D-872B-9F53BB3ACA80}
+		{1CF1EC1C-17C3-4F40-A89B-ED41803AC00F} = {E472BDF5-61F1-461D-872B-9F53BB3ACA80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24BEC44B-92B0-43AA-9B15-163459D0C098}

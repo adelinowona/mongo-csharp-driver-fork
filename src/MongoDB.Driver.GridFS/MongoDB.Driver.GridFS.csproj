@@ -63,7 +63,7 @@
 
   <ItemGroup>
     <None Include="..\..\License.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
-    <None Include="..\..\packageIcon.png" Pack="true" PackagePath=""/>
+    <None Include="..\..\packageIcon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

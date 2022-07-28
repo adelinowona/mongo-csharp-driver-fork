@@ -152,7 +152,7 @@ namespace MongoDB.Driver.Core.Tests.Core.Compression
                 using (var zstandardStream = new ZstandardStream(outputStream, CompressionMode.Compress, compressionLevel))
                 {
                     inputStream.EfficientCopyTo(zstandardStream);
-                    zstandardStream.Flush();
+                    //zstandardStream.Flush();
                 }
                 return outputStream.ToArray();
             }

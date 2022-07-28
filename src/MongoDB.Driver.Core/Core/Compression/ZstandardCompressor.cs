@@ -20,7 +20,7 @@ using MongoDB.Driver.Core.Misc;
 
 namespace MongoDB.Driver.Core.Compression
 {
-    internal class ZstandardCompressor : ICompressor
+    public class ZstandardCompressor : ICompressor
     {
         // private constants
         private const int _defaultCompressionLevel = 6;
@@ -40,7 +40,7 @@ namespace MongoDB.Driver.Core.Compression
             using (var zstandardStream = new ZstandardStream(output, CompressionMode.Compress, _compressionLevel))
             {
                 input.EfficientCopyTo(zstandardStream);
-                zstandardStream.Flush();
+                //zstandardStream.Flush();
             }
         }
 
