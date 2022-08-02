@@ -34,6 +34,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0" />
+    <PackageReference Include="ZstdSharp.Port" Version="0.6.1" />
+    <PackageReference Include="Snappier" Version="1.0.0" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Version)'==''">
@@ -199,6 +201,10 @@
     <Compile Include="..\MongoDB.Shared\Hasher.cs" Link="Core\Misc\Hasher.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ZstdSharp.Port" />
+    <None Remove="Snappier" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\..\License.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
     <None Include="..\..\THIRD-PARTY-NOTICES" Pack="true" PackagePath="\" />
